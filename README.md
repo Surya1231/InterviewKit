@@ -1,9 +1,8 @@
-# Mnit Portal
+# Interview Kit
 
-One Stop portal for mnitians for getting all the information regarding MNIT.
-You can view the [Live Demo](https://mnit-portal.web.app/).
+One Stop portal for interview preparation , prepared mainy for astudents of MNIT.
 
-<a href='https://mnit-portal.web.app/' target='_blank'>
+<a href='https://int-kit.web.app/' target='_blank'>
     <img src="https://img.shields.io/badge/Project%20Status-Live-green"></a>
 </a>
 
@@ -12,7 +11,6 @@ You can view the [Live Demo](https://mnit-portal.web.app/).
 - Home (a forum where anyone can post anonymously) (Partially Completed)
 - Leaderboard (rank list of students of mnit fetched from codeforces , codechef etc.) (Codeforced Added)
 - Interview Corner (a one stop portal for all the interview related materials)
-- Companies (Authenticated view only , get to know companies visiting MNIT)
 - About (a quick info of our portal)
 
 ## Status
@@ -37,9 +35,9 @@ You can view the [Live Demo](https://mnit-portal.web.app/).
 ### Run Software
 
 1. Clone Repo
-   - `$ git clone https://github.com/Surya1231/mnit-portal.git`
+   - `$ git clone https://github.com/Surya1231/interviewKit.git`
 2. Change Directory
-   - `$ cd mnit-portal/`
+   - `$ cd interviewKit/`
 3. Install Dependencies
    - `$ npm install`
 4. Start server
