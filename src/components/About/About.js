@@ -30,8 +30,8 @@ class About extends React.Component {
             />
           </div>
         </div>
-        <div className="col-md-9">
-          <div className=" shadow rounded fixed-side-box">
+        <div className="col-md-9 mb-2">
+          <div className=" shadow rounded fixed-side-box overflow-y-auto">
             {this.state.active === 0 && <Developer />}
             {this.state.active === 1 && <Github />}
             {this.state.active === 2 && <Info />}

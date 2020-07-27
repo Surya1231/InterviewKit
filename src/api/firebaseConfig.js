@@ -9,8 +9,8 @@ var config = {
   projectId: "intkit",
   storageBucket: "intkit.appspot.com",
   messagingSenderId: "648703118477",
-  appId: "1:648703118477:web:cd934ead6fa1c86368a6c4",
-  measurementId: "G-R45LR98DMD",
+  appId: "1:648703118477:web:8b099e08f15ff8c768a6c4",
+  measurementId: "G-R7B39VPD0R",
 };
 
 firebase.initializeApp(config);

@@ -4,6 +4,7 @@ import CopyOnClick from "../common/CopyOnClick";
 import { getUserName } from "../../utils/username";
 import { formatPostDate } from "../../utils/datetime";
 import { AiOutlineComment, AiOutlineClockCircle } from "react-icons/ai";
+import { FaEllipsisV } from "react-icons/fa";
 import UpvotePost from "./new/UpvotePost";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
@@ -58,6 +59,9 @@ const PostBox = ({
             {formatPostDate(post.createdAt)}
             <div className="d-inline-block pl-1">
               <AiOutlineClockCircle size={15} />
+            </div>
+            <div className="d-inline-block bold pl-1">
+              <FaEllipsisV />
             </div>
           </span>
         </div>

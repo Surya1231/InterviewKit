@@ -1,7 +1,7 @@
 import React from "react";
 import { authenticateUser, logoutAuthUser } from "../../store/reducers/auth";
 import { connect } from "react-redux";
-import { verifyEmail, generateOtp } from "../../utils/username";
+import { verifyEmail, generateOtp, getUserName } from "../../utils/username";
 import { Link } from "react-router-dom";
 import emailjs from "emailjs-com";
 import { successNoty } from "../common/notification";
@@ -58,7 +58,11 @@ class Login extends React.Component {
       .send(
         process.env.REACT_APP_EMAIL_SERVICE_ID,
         process.env.REACT_APP_EMAIL_TEMPLATE_ID_OTP,
-        { to_email: this.state.email, otp: otp },
+        {
+          to_email: this.state.email,
+          otp: otp,
+          name: getUserName(this.state.email),
+        },
         process.env.REACT_APP_EMAIL_USER_ID
       )
       .then(

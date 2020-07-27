@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ReportAnIssue from "./ReportAnIssue";
 import AuthBar from "./AuthBar";
+import { Title } from "../common/Common";
 
 const Navbar = ({ pathname }) => {
   return (
@@ -15,7 +15,7 @@ const Navbar = ({ pathname }) => {
           alt=""
         />
         <Link to="/" className="navbar-brand">
-          MNIT PORTAL
+          <Title />
         </Link>
         <button
           className="navbar-toggler"

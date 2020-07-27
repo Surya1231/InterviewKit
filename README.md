@@ -2,7 +2,7 @@
 
 One Stop portal for interview preparation , prepared mainy for astudents of MNIT.
 
-<a href='https://int-kit.web.app/' target='_blank'>
+<a href='https://intkit.web.app/' target='_blank'>
     <img src="https://img.shields.io/badge/Project%20Status-Live-green"></a>
 </a>
 

@@ -16,11 +16,11 @@ const Github = () => {
         <div className="card-body">
           <h2 className="text-center text-primary">
             <a
-              href="https://github.com/Surya1231/mnit-portal"
+              href="https://github.com/Surya1231/interviewKit"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Mnit Portal Github
+              Interview Kit
             </a>
           </h2>
           <p className="card-text text-center">

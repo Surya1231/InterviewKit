@@ -1,4 +1,5 @@
-$base-color: #254c84;
+$base-color: #002366;
+$base-color-light: #254c84;
 
 $sidemenu-color: #c2f6f6;
 $sidemenu-text-color: black;
@@ -10,11 +11,7 @@ $error-color-light: rgb(231, 176, 176);
   overflow-y: auto;
   min-height: 100vh;
   padding-top: 57.5px;
-}
-
-.app {
   background-color: #d3d3d3;
-  height: auto;
 }
 
 .main-box {
@@ -30,6 +27,7 @@ $error-color-light: rgb(231, 176, 176);
   top: 0%;
   width: 100%;
   z-index: 10;
+  box-shadow: -15px 0px 10px -15px #111;
 
   .navbar {
     font-size: large;
@@ -57,7 +55,7 @@ $error-color-light: rgb(231, 176, 176);
 
 .sidemenu {
   .heading {
-    background-color: $base-color;
+    background-color: $base-color-light;
     color: white;
   }
 
@@ -74,7 +72,7 @@ $error-color-light: rgb(231, 176, 176);
     background-color: $sidemenu-color;
     border: none;
     color: $sidemenu-text-color;
-    border-left: 5px solid $base-color;
+    border-left: 5px solid $base-color-light;
     box-sizing: border-box;
   }
 }
@@ -83,7 +81,7 @@ $error-color-light: rgb(231, 176, 176);
 
 .sidebox {
   .heading {
-    background-color: $base-color;
+    background-color: $base-color-light;
     color: white;
   }
 }
@@ -133,7 +131,7 @@ $error-color-light: rgb(231, 176, 176);
   }
 
   th {
-    background-color: $base-color;
+    background-color: $base-color-light;
     color: white;
   }
 }

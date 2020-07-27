@@ -3,7 +3,8 @@ export const getUserName = (email) => {
 };
 
 export const verifyEmail = (email) => {
-  return email.endsWith("@mnit.ac.in");
+  //return email.endsWith("@mnit.ac.in");
+  return true;
 };
 
 export const generateOtp = () => {
