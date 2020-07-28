@@ -1,6 +1,7 @@
 import { successNoty, errorNoty } from "../../components/common/notification";
 
 export const ADD_NEW_POST = "ADD_NEW_POST";
+export const DELETE_POST = "DELETE_POST";
 export const ADD_NEW_COMMENT = "ADD_NEW_COMMENT";
 export const ADD_NEW_UPVOTE = "ADD_NEW_UPVOTE";
 export const HOME_ACTION_ERROR = "HOME_ACTION_ERROR";
@@ -90,11 +91,35 @@ export const addNewUpvote = (id, user) => {
   };
 };
 
+export const deletePost = (id) => {
+  return (dispatch, getState, { getFirebase }) => {
+    const firestore = getFirebase().firestore();
+    firestore
+      .collection("posts")
+      .doc(id)
+      .delete()
+      .then((res) => {
+        dispatch({
+          type: DELETE_POST,
+          res,
+        });
+      })
+      .catch((error) => {
+        dispatch(homeActionError(error));
+      });
+  };
+};
+
 // Reducer
 export function homeReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_NEW_POST: {
       successNoty("Your post has been added Successfully ");
+      return state;
+    }
+
+    case DELETE_POST: {
+      successNoty("Your post has been deleted Successfully ");
       return state;
     }
 

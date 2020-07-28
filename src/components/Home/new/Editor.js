@@ -33,7 +33,6 @@ class Editor extends React.Component {
 Editor.modules = {
   toolbar: [
     [{ header: "1" }, { header: "2" }],
-    [{ size: [] }],
     ["bold", "italic", "underline", "strike"],
     ["code"],
     [{ color: [] }, { background: [] }],

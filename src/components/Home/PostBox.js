@@ -9,6 +9,7 @@ import UpvotePost from "./new/UpvotePost";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
+import { deletePost } from "../../store/reducers/home";
 
 const CommentBox = ({ comment }) => {
   return (
@@ -40,16 +41,48 @@ const CommentBox = ({ comment }) => {
 //   );
 // };
 
+const Menu = ({ enable = false, deletePost, id }) => {
+  return (
+    <div style={{ position: "absolute" }}>
+      <ul className="list-group">
+        <button
+          type="button"
+          disabled={!enable}
+          onClick={() => {
+            let w = window.confirm(
+              "Are you sure you want to delete this post?"
+            );
+            if (w) deletePost(id);
+          }}
+          className="list-group-item list-group-item-action list-group-item-danger"
+        >
+          Delete
+        </button>
+        <button
+          type="button"
+          disabled={!enable}
+          className="list-group-item list-group-item-action list-group-item-info"
+        >
+          Edit
+        </button>
+      </ul>
+    </div>
+  );
+};
+
 const PostBox = ({
   post,
   open = false,
   comments = [],
   upvotes = [],
   maxHeight = "700px",
+  deletePost,
+  user,
 }) => {
   const url = String(window.location);
   const baseUrl = url.split("/")[0] + "//" + url.split("/")[2];
   const [showComment, changeShowComment] = useState(open);
+  let [showMenu, changeShowMenu] = useState(false);
   return (
     <div className="post mt-3" style={{ fontSize: "0.9rem" }}>
       <div className="bg-white rounded py-2 px-3 px-md-4">
@@ -57,14 +90,29 @@ const PostBox = ({
           {post.anonymous ? "Anonymous" : getUserName(post.postedBy)}
           <span className="float-right  font-weight-normal text-muted">
             {formatPostDate(post.createdAt)}
-            <div className="d-inline-block pl-1">
+            <div className="d-inline-block pl-1 pb-1">
               <AiOutlineClockCircle size={15} />
             </div>
-            <div className="d-inline-block bold pl-1">
+            <span
+              className="text-dark pl-1 font-weight-bold"
+              onClick={() => changeShowMenu(!showMenu)}
+            >
               <FaEllipsisV />
-            </div>
+            </span>
           </span>
         </div>
+        {showMenu && (
+          <div style={{ paddingRight: "76px" }}>
+            <span className="float-right">
+              <Menu
+                enable={user === post.postedBy}
+                deletePost={deletePost}
+                id={post.id}
+              />
+            </span>
+          </div>
+        )}
+
         <div className="post-content mt-2">
           <div style={{ maxHeight: maxHeight, overflowY: "auto" }}>
             <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
@@ -122,10 +170,15 @@ const mapStateToProps = (state, ownProps) => {
   return {
     comments: state.firestore.ordered["comments" + ownProps.post.id],
     upvotes: state.firestore.ordered["upvotes" + ownProps.post.id],
+    user: state.auth.user,
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deletePost: (id) => dispatch(deletePost(id)),
+  };
+};
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
